@@ -9,8 +9,8 @@
 
 ## 🌐 Live Links
 
-- **Frontend**: 👉 [[https://ashishrautela.in](https://ashishrautela.in/URL_Shortner)]
-- **Backend API**: 👉 [[https://api.ashishrautela.in](https://api.ashishrautela.in/url/)]
+- **Frontend**: 👉 [https://ashishrautela.in/URL_Shortner](https://ashishrautela.in/URL_Shortner)
+- **Backend API**: 👉 [https://api.ashishrautela.in/url](https://api.ashishrautela.in/url/)
 
 ---
 
