@@ -1,4 +1,4 @@
-# 🔗 URL Shortener Backend
+# 🔗 URL Shortener
 
 > A production-grade URL shortening service built with Node.js, Express, and MongoDB. Deployed on AWS EC2 with PM2 process management, Nginx reverse proxy, and Let's Encrypt SSL.
 
