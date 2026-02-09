@@ -1,44 +1,58 @@
-# 🔗 URL Shortener Backend
+# 🔗 URL Shortener – Full Stack Project
 
-> A production-grade URL shortening service built with Node.js, Express, and MongoDB. Deployed on AWS EC2 with PM2 process management, Nginx reverse proxy, and Let's Encrypt SSL.
+> A complete full-stack URL shortening application featuring a React frontend and Node.js backend, deployed on AWS EC2 with production-grade infrastructure including Nginx reverse proxy, PM2 process management, and Let's Encrypt SSL.
 
+[![Live Demo](https://img.shields.io/badge/demo-live-success.svg)](https://ashishrautela.in)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Node.js](https://img.shields.io/badge/Node.js-v16+-green.svg)](https://nodejs.org/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-v4+-green.svg)](https://www.mongodb.com/)
+[![React](https://img.shields.io/badge/React-v18+-blue.svg)](https://reactjs.org/)
 
-## 🌐 Live Demo
+## 🌐 Live Links
 
-- **API Endpoint**: [https://api.ashishrautela.in](https://api.ashishrautela.in)
-- **Frontend**: [https://ashishrautela.in](https://ashishrautela.in)
+- **Frontend**: 👉 [https://ashishrautela.in](https://ashishrautela.in)
+- **Backend API**: 👉 [https://api.ashishrautela.in](https://api.ashishrautela.in)
 
 ---
 
 ## ✨ Features
 
-- ✅ **URL Shortening** - Convert long URLs into short, shareable links
-- 🔄 **Smart Deduplication** - Reuses existing short URLs for duplicate long URLs
-- ⚡ **Fast Redirects** - Optimized database queries with indexed lookups
-- 🌍 **CORS Enabled** - Seamless frontend integration across origins
-- 🔒 **HTTPS Secure** - SSL/TLS encryption via Let's Encrypt
-- 🚀 **Production Ready** - PM2 process management with auto-restart
-- 🔁 **Nginx Reverse Proxy** - Professional routing and load balancing
-- ☁️ **AWS EC2 Hosted** - Scalable cloud infrastructure
+### Frontend
+- ✅ **Clean & Responsive UI** - Modern, mobile-friendly design
+- 🎯 **Instant URL Shortening** - Real-time short URL generation
+- 📋 **Copy to Clipboard** - One-click URL copying
+- ⚙️ **Environment-Based Config** - Seamless development and production modes
+- 🎨 **User-Friendly Interface** - Intuitive and accessible
+
+### Backend
+- 🔗 **URL Shortening** - Convert long URLs to short, shareable links
+- 🚀 **Fast Redirects** - Efficient redirection to original URLs
+- 🔄 **Duplicate Prevention** - Smart handling of existing URLs
+- 💾 **MongoDB Persistence** - Reliable data storage
+- 🌍 **CORS Enabled** - Cross-origin support for frontend
+- ⚡ **Production Ready** - Optimized for scalability and performance
 
 ---
 
 ## 🛠️ Tech Stack
 
+### Frontend
+- **React.js** - UI library
+- **HTML5** - Markup
+- **CSS3** - Styling
+- **JavaScript (ES6+)** - Programming language
+- **Axios / Fetch API** - HTTP client
+
 ### Backend
 - **Node.js** - JavaScript runtime
-- **Express.js** - Web application framework
+- **Express.js** - Web framework
 - **MongoDB** - NoSQL database
-- **Mongoose** - MongoDB object modeling
+- **Mongoose** - MongoDB ODM
 
-### DevOps & Infrastructure
-- **AWS EC2** - Cloud server (Ubuntu)
-- **Nginx** - Reverse proxy server
-- **PM2** - Production process manager
-- **Certbot** - SSL certificate management
+### Deployment & DevOps
+- **AWS EC2** - Cloud hosting (Ubuntu)
+- **Nginx** - Reverse proxy & web server
+- **PM2** - Process manager
+- **Certbot** - SSL/TLS certificates (Let's Encrypt)
 - **GitHub** - Version control
 
 ---
@@ -46,21 +60,30 @@
 ## 📁 Project Structure
 
 ```
-url-shortener-backend/
+URL_SHORTNER/
 │
-├── src/
-│   ├── app.js              # Express app configuration
-│   ├── server.js           # Server entry point
-│   ├── routes/
-│   │   └── index.js        # API route definitions
-│   ├── controllers/        # Request handlers
-│   ├── services/           # Business logic
-│   ├── models/             # Database models
-│   └── .env                # Environment variables (not in repo)
+├── backend/
+│   ├── config/            # DB & environment configuration
+│   ├── controller/        # Request handlers
+│   ├── loadBalancer/      # Load balancing / scaling logic
+│   ├── model/             # MongoDB schemas
+│   ├── routes/            # API routes
+│   ├── services/          # Business logic
+│   ├── src/               # Server entry / app setup
+│   ├── package.json
+│   ├── .env               # Environment variables (not in repo)
+│   └── .gitignore
 │
-├── package.json
-├── package-lock.json
-└── README.md
+├── frontend/
+│   └── url-shortner/
+│       ├── build/         # Production build
+│       ├── public/        # Static assets
+│       ├── src/           # React components & logic
+│       ├── package.json
+│       └── .gitignore
+│
+├── README.md              # Project documentation
+└── .gitignore
 ```
 
 ---
@@ -72,35 +95,54 @@ url-shortener-backend/
 - Node.js (v16 or higher)
 - MongoDB (local or Atlas)
 - npm or yarn
+- Git
 
-### Local Development
+### 1️⃣ Clone the Repository
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Ashish-Rautela/url-shortener-backend.git
-   cd url-shortener-backend
-   ```
+```bash
+git clone https://github.com/Ashish-Rautela/URL_SHORTNER.git
+cd URL_SHORTNER
+```
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+### 2️⃣ Backend Setup
 
-3. **Configure environment variables**
-   
-   Create a `.env` file in the `src/` directory:
-   ```env
-   PORT=4000
-   MONGO_URI=mongodb://localhost:27017/urlshortener
-   BASE_URL=http://localhost:4000/url
-   ```
+```bash
+cd backend
+npm install
+```
 
-4. **Start the development server**
-   ```bash
-   npm start
-   ```
+Create a `.env` file in the `backend/` directory:
 
-   Server will run at: `http://localhost:4000`
+```env
+PORT=4000
+MONGO_URI=mongodb://localhost:27017/urlshortener
+BASE_URL=http://localhost:3000/url
+```
+
+Start the backend server:
+
+```bash
+npm start
+```
+
+Backend will run at: `http://localhost:4000`
+
+### 3️⃣ Frontend Setup
+
+```bash
+cd frontend/url-shortner
+npm install
+```
+
+Update API endpoint in frontend configuration (if needed)
+
+Start the frontend development server:
+
+```bash
+npm start
+```
+
+Frontend will run at: `http://localhost:3000`
 
 ---
 
@@ -132,38 +174,58 @@ url-shortener-backend/
 
 **Example**: `https://ashishrautela.in/url/2I`
 
-**Behavior**: Redirects (301) to the original long URL
+**Behavior**: HTTP 301 redirect to the original long URL
 
 ---
 
-## 🔄 Deduplication Logic
+## ⚙️ Environment Variables
 
-The system intelligently handles duplicate URLs:
+### Backend Configuration
 
-- ✅ **Existing URL**: Returns the previously generated short URL
-- 🆕 **New URL**: Generates a fresh short ID and stores it
+Create `backend/.env`:
 
-This prevents database bloat and ensures consistency.
+```env
+PORT=4000
+MONGO_URI=your_mongodb_connection_string
+BASE_URL=https://ashishrautela.in/url
+```
+
+⚠️ **Security Note**: Never commit `.env` files to version control
+
+### Frontend Configuration
+
+Update API base URL in your React app configuration based on environment:
+
+```javascript
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+```
 
 ---
 
 ## ☁️ Production Deployment
 
-### AWS EC2 Setup
+### AWS EC2 Backend Setup
 
 1. **Launch EC2 Instance** (Ubuntu 22.04 LTS)
-2. **Install dependencies**:
-   ```bash
-   sudo apt update
-   sudo apt install nodejs npm nginx certbot python3-certbot-nginx
-   ```
 
-3. **Clone and setup project**:
-   ```bash
-   git clone https://github.com/Ashish-Rautela/url-shortener-backend.git
-   cd url-shortener-backend
-   npm install
-   ```
+2. **Install Dependencies**:
+```bash
+sudo apt update
+sudo apt install nodejs npm nginx certbot python3-certbot-nginx mongodb
+```
+
+3. **Clone and Setup**:
+```bash
+git clone https://github.com/Ashish-Rautela/URL_SHORTNER.git
+cd URL_SHORTNER/backend
+npm install
+```
+
+4. **Configure Environment**:
+```bash
+nano .env
+# Add production MongoDB URI and BASE_URL
+```
 
 ### PM2 Process Management
 
@@ -171,17 +233,20 @@ This prevents database bloat and ensures consistency.
 # Install PM2 globally
 sudo npm install -g pm2
 
-# Start application
+# Start backend with PM2
+cd backend
 pm2 start src/server.js --name url-backend
 
 # Save PM2 configuration
 pm2 save
 
-# Enable auto-restart on system reboot
+# Enable auto-restart on reboot
 pm2 startup
 ```
 
 ### Nginx Configuration
+
+#### Backend API Configuration
 
 Create `/etc/nginx/sites-available/api.ashishrautela.in`:
 
@@ -195,38 +260,87 @@ server {
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
         proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
         proxy_cache_bypass $http_upgrade;
     }
 }
 ```
 
-Enable the site:
+#### Frontend Configuration
+
+Create `/etc/nginx/sites-available/ashishrautela.in`:
+
+```nginx
+server {
+    server_name ashishrautela.in www.ashishrautela.in;
+    root /var/www/ashishrautela.in/build;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    location /url/ {
+        proxy_pass http://localhost:4000/url/;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+```
+
+Enable sites:
 ```bash
 sudo ln -s /etc/nginx/sites-available/api.ashishrautela.in /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/ashishrautela.in /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl restart nginx
 ```
 
-### SSL Certificate (HTTPS)
+### Frontend Build & Deployment
 
 ```bash
-sudo certbot --nginx -d api.ashishrautela.in
+cd frontend/url-shortner
+npm run build
+
+# Copy build to web server directory
+sudo mkdir -p /var/www/ashishrautela.in
+sudo cp -r build/* /var/www/ashishrautela.in/
 ```
 
-Certbot will automatically:
-- Issue SSL certificates
-- Configure Nginx for HTTPS
-- Set up auto-renewal
+### SSL Certificate Setup
+
+```bash
+# For API subdomain
+sudo certbot --nginx -d api.ashishrautela.in
+
+# For main domain
+sudo certbot --nginx -d ashishrautela.in -d www.ashishrautela.in
+```
+
+Auto-renewal is configured automatically by Certbot.
 
 ---
 
-## 🌐 Domain Configuration
+## 🔄 Duplicate URL Handling
 
-| Domain | Purpose | Points To |
-|--------|---------|-----------|
-| `ashishrautela.in` | Frontend (GitHub Pages) | GitHub Pages server |
-| `api.ashishrautela.in` | Backend API | AWS EC2 IP address |
-| `/url/:id` | URL redirection | Express route handler |
+The system intelligently manages duplicate URLs:
+
+- ✅ **Existing URL Found**: Returns the previously generated short URL
+- 🆕 **New URL**: Generates a unique short ID and stores it
+- 💡 **Benefits**: Prevents database bloat and ensures consistency
+
+---
+
+## 🌐 Domain Architecture
+
+| Domain | Purpose | Backend | Technology |
+|--------|---------|---------|------------|
+| `ashishrautela.in` | Frontend UI | N/A | React (Static) |
+| `api.ashishrautela.in` | REST API | Port 4000 | Node.js/Express |
+| `/url/:shortId` | URL Redirect | Port 4000 | Express Route |
 
 ---
 
@@ -234,63 +348,133 @@ Certbot will automatically:
 
 ### PM2 Management
 ```bash
-pm2 list                    # View all processes
-pm2 logs url-backend        # View logs
-pm2 restart url-backend     # Restart app
-pm2 stop url-backend        # Stop app
+pm2 list                    # List all processes
+pm2 logs url-backend        # View application logs
+pm2 restart url-backend     # Restart backend
+pm2 stop url-backend        # Stop backend
 pm2 delete url-backend      # Remove from PM2
+pm2 monit                   # Monitor resources
 ```
 
-### Nginx
+### Nginx Commands
 ```bash
 sudo nginx -t               # Test configuration
 sudo systemctl restart nginx # Restart Nginx
-sudo systemctl status nginx  # Check status
+sudo systemctl status nginx  # Check Nginx status
+sudo systemctl reload nginx  # Reload configuration
 ```
 
-### SSL Certificate Renewal
+### SSL Certificate Management
 ```bash
-sudo certbot renew          # Manual renewal
-sudo certbot renew --dry-run # Test renewal
+sudo certbot renew          # Renew certificates
+sudo certbot renew --dry-run # Test renewal process
+sudo certbot certificates    # List all certificates
+```
+
+### MongoDB Commands
+```bash
+sudo systemctl status mongodb # Check MongoDB status
+sudo systemctl start mongodb  # Start MongoDB
+mongo                        # Open MongoDB shell
 ```
 
 ---
 
 ## 🐛 Troubleshooting
 
+### API Works Locally But Not on Domain
+
+**Symptoms**: API responds on `localhost:4000` but not `api.ashishrautela.in`
+
+**Solutions**:
+1. Check Nginx configuration:
+```bash
+sudo nginx -t
+cat /etc/nginx/sites-enabled/api.ashishrautela.in
+```
+
+2. Verify PM2 is running:
+```bash
+pm2 list
+pm2 logs url-backend
+```
+
+3. Restart services:
+```bash
+pm2 restart url-backend
+sudo systemctl restart nginx
+```
+
 ### CORS Errors
-**Solution**: Ensure CORS is enabled in `app.js`:
+
+**Solution**: Ensure CORS is enabled in backend `app.js`:
 ```javascript
 const cors = require('cors');
-app.use(cors());
+app.use(cors({
+    origin: ['https://ashishrautela.in', 'http://localhost:3000'],
+    credentials: true
+}));
 ```
 
-### 404 Errors on Domain
-**Solution**: Verify Nginx proxy configuration points to correct port (4000)
+### Frontend Not Loading
 
-### PM2 Not Auto-Restarting
-**Solution**: Reset PM2 configuration:
+**Solutions**:
+1. Check build exists:
 ```bash
-pm2 delete all
-pm2 start src/server.js --name url-backend
-pm2 save
-pm2 startup
+ls -la /var/www/ashishrautela.in/
 ```
 
-### MongoDB Connection Issues
-**Solution**: Check `MONGO_URI` in `.env` file and ensure MongoDB is running
+2. Verify Nginx permissions:
+```bash
+sudo chown -R www-data:www-data /var/www/ashishrautela.in
+```
+
+3. Check Nginx error logs:
+```bash
+sudo tail -f /var/log/nginx/error.log
+```
+
+### MongoDB Connection Failed
+
+**Solutions**:
+1. Verify MongoDB is running:
+```bash
+sudo systemctl status mongodb
+```
+
+2. Check connection string in `.env`
+
+3. Test connection:
+```bash
+mongo --eval "db.adminCommand('ping')"
+```
 
 ---
 
-## 🔮 Future Enhancements
+## 📈 Future Enhancements
 
-- [ ] 📊 **Analytics Dashboard** - Track clicks, referrers, and geographic data
-- [ ] 🔐 **Rate Limiting** - Prevent API abuse
-- [ ] 👤 **User Authentication** - Enable custom short URLs
-- [ ] 🏥 **Health Check Endpoint** - `/health` for monitoring
+- [ ] 📊 **Click Analytics** - Track clicks, geographic data, and referrers
+- [ ] 🎯 **Custom Aliases** - User-defined short URLs
+- [ ] ⏰ **URL Expiration** - Time-limited short links
+- [ ] 🔐 **Rate Limiting** - API abuse prevention
+- [ ] 👤 **User Authentication** - Account-based URL management
 - [ ] 🐳 **Docker Support** - Containerized deployment
-- [ ] 📱 **QR Code Generation** - Visual short URL sharing
-- [ ] ⏰ **Expiration Dates** - Time-limited short URLs
+- [ ] 📱 **QR Code Generation** - Visual sharing options
+- [ ] 🔍 **URL Preview** - See destination before clicking
+- [ ] 📧 **Email Integration** - Share via email
+- [ ] 🌙 **Dark Mode** - Theme customization
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ---
 
@@ -307,20 +491,37 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 🌐 Portfolio: [ashishrautela.in](https://ashishrautela.in)
 - 💼 GitHub: [@Ashish-Rautela](https://github.com/Ashish-Rautela)
 - 📧 Email: contact@ashishrautela.in
+- 💼 LinkedIn: [Connect with me](https://www.linkedin.com/in/ashish-rautela)
 
 ---
 
 ## 🙏 Acknowledgments
 
-- Built with best practices from real-world production systems
-- Inspired by modern DevOps workflows
-- Designed for learners seeking industry-grade examples
+- Built with industry best practices and modern DevOps workflows
+- Designed as a learning resource for full-stack development
+- Implements production-grade architecture and deployment strategies
+
+---
+
+## 📸 Screenshots
+
+### Frontend Interface
+![URL Shortener UI](https://via.placeholder.com/800x400?text=Add+Your+Screenshot)
+
+### API Response
+```json
+{
+  "shortUrl": "https://ashishrautela.in/url/abc123",
+  "originalUrl": "https://example.com/very/long/url",
+  "createdAt": "2026-02-09T10:30:00Z"
+}
+```
 
 ---
 
 ## ⭐ Show Your Support
 
-If this project helped you learn backend development or deployment, please give it a star! ⭐
+If this project helped you learn full-stack development or DevOps practices, please give it a star! ⭐
 
 ---
 
@@ -328,6 +529,8 @@ If this project helped you learn backend development or deployment, please give 
 
 **Built with ❤️ by Ashish Rautela**
 
-*Production-tested | Scalable | Industry-grade*
+*Full Stack | Production Ready | Industry Grade*
+
+[⬆ Back to Top](#-url-shortener--full-stack-project)
 
 </div>
